@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from "react"
+import { NavigationContainer } from "@react-navigation/native"
+import DrawerNavigator from "./navigators/DrawerNavigator"
+import Landing from './screens/Landing'
+// import axios from 'axios'
 
-export default function App() {
+// const END_POINT_BENEFITS = "https://chhr.afdb.org/wp-json/wp/v2/posts?categories=102&_embed"
+
+const App = () => {
+
+  const [isLoggedIn, setLoggedIn] = useState(false)
+
+  // useEffect(() => {
+  //   axios.get(`END_POINT_BENEFITS`)
+  //     .then(res => {
+  //       const nameList = res.data
+  //       this.setState({ nameList })
+  //     })
+  //   setLoggedIn()
+  // }, [])
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      {
+        isLoggedIn ? <DrawerNavigator /> 
+          : <Landing isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
+      }
+    </NavigationContainer>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
