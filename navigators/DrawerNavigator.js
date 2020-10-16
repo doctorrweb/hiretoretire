@@ -6,6 +6,7 @@ import DrawerContent from '../containers/DrawerContent'
 import {
     NewsStackNavigator, 
     AboutStackNavigator, 
+    ServiceStackNavigator, 
     EventStackNavigator,
     DocumentStackNavigator
 } from './StackNavigators'
@@ -54,6 +55,20 @@ function DrawerNavigator() {
                 component={AboutStackNavigator}
             />
             <Drawer.Screen
+                name="Services"
+                options={{
+                    drawerIcon: ({ focused, tintColor }) => (
+                        <Ionicons
+                            //style={{ paddingLeft: 20 }}
+                            color={!focused ? tintColor : "#fff"}
+                            name="md-filing"
+                            size={20}
+                        />
+                    ),
+                }}
+                component={ServiceStackNavigator}
+            />
+            <Drawer.Screen
                 name="News"
                 options={{
                     drawerIcon: ({ focused, tintColor }) => (
@@ -68,7 +83,7 @@ function DrawerNavigator() {
                 component={NewsStackNavigator}
             />
             <Drawer.Screen
-                name="Event"
+                name="Events"
                 options={{
                     drawerIcon: ({ focused, tintColor }) => (
                         <Ionicons

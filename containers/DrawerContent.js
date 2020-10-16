@@ -3,8 +3,6 @@ import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navi
 import {
     View,
     SafeAreaView,
-    ScrollView,
-    Dimensions,
     Image,
     Linking,
 } from "react-native"

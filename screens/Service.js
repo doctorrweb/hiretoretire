@@ -4,7 +4,9 @@ import { StyleSheet, Alert, Linking } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import CardList from "../components/CardList"
 import { Text, Button, Icon, Spinner, List, Container } from 'native-base'
-import { getData } from '../utils/getData'
+import { getData, getBenefitPosts } from '../utils/getData'
+
+// import { Button, View, Text } from "react-native"
 
 const styles = StyleSheet.create({
     container: {
@@ -13,14 +15,13 @@ const styles = StyleSheet.create({
     }
 })
 
+function Service({ navigation }) {
 
-function Event({ navigation }) {
-    
     const [data, setData] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        getData('events').then(
+        getBenefitPosts().then(
             (res) => {
                 setIsLoading(!isLoading)
                 setData(res)
@@ -38,7 +39,7 @@ function Event({ navigation }) {
                 <List
                     dataArray={data}
                     renderRow={(item, index) => (
-                        <CardList data={item} nav={navigation} />
+                        <CardList data={item} dest='Service Details' />
                     )}
                     keyExtractor={(item, index) => index.toString()}
                 />
@@ -47,7 +48,6 @@ function Event({ navigation }) {
             <Spinner color="green" />
         )
     )
-
 }
 
-export default Event
+export default Service
