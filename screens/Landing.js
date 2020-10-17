@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from 'prop-types'
 import { StyleSheet, Text, ImageBackground, Image, Linking, View } from 'react-native'
-import { Container, Button } from 'native-base'
+import { Container, Button, Spinner } from 'native-base'
 import { Col, Row, Grid } from 'react-native-easy-grid'
 
 
@@ -17,7 +17,24 @@ const styles = StyleSheet.create({
   }
 })
 
-const Landing = ({ isLoggedIn, setLoggedIn, navigation }) => (
+const btnActive = { backgroundColor: "#02983E", width: 250, marginLeft: 75 }
+const btnDisabled = { backgroundColor: "#F2F2F2", width: 250, marginLeft: 75 }
+
+const Landing = ({ isConnected, setLoggedIn, setIsLoading, isLoading }) => {
+
+  const [vpnMsg, setVpnMsg] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (isConnected === false) {
+        setIsLoading(false)
+      }
+      setVpnMsg(true)
+    }, 10000)
+  }, [isLoading])
+
+
+  return (
     <Container>
           <Grid>
             <Row size={90}>
@@ -37,46 +54,65 @@ const Landing = ({ isLoggedIn, setLoggedIn, navigation }) => (
                   rounded
                   small
                   block
+                  disabled={!isConnected}
                   onPress={() => setLoggedIn(true)}
                 //   onPress={() => navigation.navigate("Home")}
-                  style={{ backgroundColor: "#02983E", width: 250, marginLeft: 75 }}
+                  style={!isConnected ? btnDisabled : btnActive}
                 >
                   <Text style={{
                     color: "#fff",
                     fontWeight: "bold",
                     fontSize: 16
-                  }}>Bank Staff</Text>
+                  }}>Enter</Text>
                 </Button>
-                <View style={{
-                  marginTop: 130,
+                { isLoading && <Spinner color="green" /> }
+                { vpnMsg && isConnected === false && (
+                  <View style={{
+                  marginTop: 60,
                   width: 230,
                   textAlign: 'center',
                 }}>
+                  <Row style={{
+                    marginBottom: 60
+                  }}>
                   <Image
                     style={{
-                      marginLeft: 90,
+                      marginLeft: 70,
                       height: 37,
                       width: 35
                     }}
                     source={require("../assets/logo-rsa.png")}
                   />
+                  <Image
+                    style={{
+                      marginLeft: 20,
+                      height: 37,
+                      width: 35
+                    }}
+                    source={require("../assets/logo-cisco-anyconnect.png")}
+                  />
+                  </Row>
                   <Text
                     style={{
                       textAlign: 'center',
                     }}
                   >
-                    Activate your VPN outside the African Development Bank Network
+                    Please activate your VPN connection outside the African Development Bank Network
                   </Text>
                 </View>
+                ) }
               </ImageBackground>
             </Row>
           </Grid>
         </Container>
-)
+  )
+}
 
 Landing.propTypes = {
-    isLoggedIn: PropTypes.bool,
-    setLoggedIn: PropTypes.func
+    isConnected: PropTypes.bool,
+    isLoading: PropTypes.bool,
+    setLoggedIn: PropTypes.func,
+    setIsLoading: PropTypes.func
 }
 
 export default Landing
