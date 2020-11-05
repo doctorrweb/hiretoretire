@@ -19,7 +19,7 @@ function About({ navigation }) {
             
             <Row size={1} style={{ padding: 10 }}>
                 <ImageBackground
-                    source={require("../assets/overview_afdb.png")}
+                    source={require("../assets/front-office.png")}
                     style={{ width: "100%", height: "100%", borderRadius: 30 }}
                 >
                     <View style={styles.container}>
@@ -45,7 +45,9 @@ function About({ navigation }) {
                                 paddingLeft: 25,
                                 marginLeft: "40%",
                             }}
-                            onPress={() => navigation.navigate("About Details")}
+                            onPress={() => navigation.navigate("About Details", {
+                                post: '7004'
+                            })}
                         >
                             <Text style={{ color: "#fff" }}>View</Text>
                         </Button>
@@ -54,7 +56,7 @@ function About({ navigation }) {
             </Row>
             <Row size={1}>
                 <ImageBackground
-                    source={require("../assets/development.png")}
+                    source={require("../assets/business-partner.png")}
                     style={{ width: "100%", height: "100%", borderRadius: 30 }}
                 >
                     <View style={styles.container}>
@@ -80,7 +82,9 @@ function About({ navigation }) {
                                 paddingLeft: 25,
                                 marginLeft: "40%",
                             }}
-                            onPress={() => navigation.navigate("About Details")}
+                            onPress={() => navigation.navigate("About Details", {
+                                post: '7007'
+                            })}
                         >
                             <Text style={{ color: "#fff" }}>View</Text>
                         </Button>
@@ -89,7 +93,7 @@ function About({ navigation }) {
             </Row>
             <Row size={1}>
                 <ImageBackground
-                    source={require("../assets/structure.png")}
+                    source={require("../assets/shared-services.png")}
                     style={{ width: "100%", height: "100%", borderRadius: 30 }}
                 >
                     <View style={styles.container}>
@@ -115,7 +119,9 @@ function About({ navigation }) {
                                 paddingLeft: 25,
                                 marginLeft: "40%",
                             }}
-                            onPress={() => navigation.navigate("About Details")}
+                            onPress={() => navigation.navigate("About Details", {
+                                post: '7011'
+                            })}
                         >
                             <Text style={{ color: "#fff" }}>View</Text>
                         </Button>
@@ -124,7 +130,7 @@ function About({ navigation }) {
             </Row>
             <Row size={1}>
                 <ImageBackground
-                    source={require("../assets/history.png")}
+                    source={require("../assets/training.png")}
                     style={{ width: "100%", height: "100%", borderRadius: 30 }}
                 >
                     <View style={styles.container}>
@@ -150,7 +156,9 @@ function About({ navigation }) {
                                 paddingLeft: 25,
                                 marginLeft: "40%",
                             }}
-                            onPress={() => navigation.navigate("About Details")}
+                            onPress={() => navigation.navigate("About Details", {
+                                post: '7014'
+                            })}
                         >
                             <Text style={{ color: "#fff" }}>View</Text>
                         </Button>

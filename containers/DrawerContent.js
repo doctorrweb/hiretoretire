@@ -26,6 +26,16 @@ const DrawerContent = (props) => (
         <DrawerContentScrollView>
             <DrawerItemList {...props} />
             <DrawerItem
+                label="Documents"
+                icon={({ focused, color }) => (
+                    <Ionicons
+                        name="md-folder-open"
+                        size={20}
+                    />
+                )}
+                onPress={() => Linking.openURL("https://chhr.afdb.org/guidance-tools/")}
+            />
+            <DrawerItem
                 label="CHHR Website"
                 style={{
                     marginTop: 70,

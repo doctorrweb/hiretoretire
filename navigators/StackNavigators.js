@@ -47,9 +47,13 @@ const MainStackNavigator = ({ navigation }) => {
             <Stack.Screen name="About" component={About} />
             <Stack.Screen name="About Details" component={AboutDetails} />
             <Stack.Screen name="Service" component={Service} />
+            <Stack.Screen name="Service Details" component={ServiceDetails} />
             <Stack.Screen name="News" component={News} />
+            <Stack.Screen name="News Details" component={NewsDetails} />
             <Stack.Screen name="Event" component={Event} />
+            <Stack.Screen name="Event Details" component={EventDetails} />
             <Stack.Screen name="Documents" component={Documents} />
+            <Stack.Screen name="Document Details" component={DocumentDetails} />
         </Stack.Navigator>
     )
 }

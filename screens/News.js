@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 
-import { StyleSheet, Alert, Linking } from "react-native"
-import { Ionicons } from "@expo/vector-icons"
+import { StyleSheet, Alert } from "react-native"
 import CardList from "../components/CardList"
-import { Text, Button, Icon, Spinner, List, Container } from 'native-base'
+import { Spinner, List, Container } from 'native-base'
+import Empty from '../components/Empty'
 import { getData } from '../utils/getData'
 
 
@@ -21,7 +21,7 @@ function News({ navigation }) {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        getData().then(
+        getData('news').then(
             (res) => {
                 setIsLoading(!isLoading)
                 setData(res)
@@ -36,13 +36,20 @@ function News({ navigation }) {
 
         !isLoading ? (
             <Container>
-                <List
+                {
+                    data.length !== 0 ? (
+                        <List
                     dataArray={data}
                     renderRow={(item, index) => (
                         <CardList data={item} nav={navigation} />
                     )}
                     keyExtractor={(item, index) => index.toString()}
                 />
+                    ) : (
+                        <Empty title='news' />
+                    )
+                }
+                
             </Container>
         ) : (
             <Spinner color="green" />

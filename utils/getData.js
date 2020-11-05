@@ -3,7 +3,8 @@ import axios from 'axios'
 const controller = new AbortController()
 const { signal } = controller
 
-const END_POINT = "https://chhr.afdb.org/wp-json/wp/v2"
+const END_POINT_IMAGE = "https://chhr.afdb.org/wp-json/wp/v2/media"
+const END_POINT_POST = "https://chhr.afdb.org/wp-json/wp/v2/posts"
 const END_POINT_BENEFITS = "https://chhr.afdb.org/wp-json/wp/v2/posts?categories=102&_embed"
 
 const END_POINT_CHHR = "https://chhr.afdb.org/wp-json/wp/v2/posts?categories=106&_embed"
@@ -16,7 +17,7 @@ const END_POINT_FAQS = "https://chhr.afdb.org/wp-json/wp/v2/posts?categories=104
 const END_POINT_GUIDANCES = "https://chhr.afdb.org/wp-json/wp/v2/posts?categories=108&_embed"
 const END_POINT_OTHERS = "https://chhr.afdb.org/wp-json/wp/v2/posts?categories=109&_embed"
 
-const END_POINT_AFDB = "https://chhr.afdb.org/wp-json/wp/v2/posts"
+const END_POINT_AFDB = "https://chhr.afdb.org/wp-json/wp/v2/"
 
 
 export const getData = async (category) => {
@@ -43,15 +44,13 @@ export const getData = async (category) => {
       uri = END_POINT_OTHERS
       break
   
-    default: uri = END_POINT
+    default: uri = END_POINT_AFDB
       break
   }
 
   try {
       let result = await fetch(uri, { signal })
       result = await result.json()
-
-      console.log('result', result)
 
       return result
 
@@ -104,12 +103,22 @@ export const getData = async (category) => {
 
 // } 
 
-export async function getBenefitPosts() {
+export async function getPost(postId) {
     try {
-      let posts = await fetch(END_POINT_BENEFITS)
-      let result = await posts.json()
+      let post = await fetch(`${END_POINT_POST}/${postId}`)
+      let result = await post.json()
 
-      console.log('result', result)
+      return result
+
+    } catch (error) {
+      console.log(error)
+  }
+}
+
+export async function getImage(imgId) {
+    try {
+      let post = await fetch(`${END_POINT_IMAGE}/${imgId}`)
+      let result = await post.json()
 
       return result
 

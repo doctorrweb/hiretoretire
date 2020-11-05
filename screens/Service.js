@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react"
 import { StyleSheet, Alert, Linking } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import CardList from "../components/CardList"
-import { Text, Button, Icon, Spinner, List, Container } from 'native-base'
+import { Text, Card, CardItem, Spinner, List, Container, Body } from 'native-base'
+import Empty from '../components/Empty'
 import { getData, getBenefitPosts } from '../utils/getData'
 
 // import { Button, View, Text } from "react-native"
@@ -21,7 +22,7 @@ function Service({ navigation }) {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        getBenefitPosts().then(
+        getData('services').then(
             (res) => {
                 setIsLoading(!isLoading)
                 setData(res)
@@ -36,13 +37,21 @@ function Service({ navigation }) {
 
         !isLoading ? (
             <Container>
-                <List
-                    dataArray={data}
-                    renderRow={(item, index) => (
-                        <CardList data={item} dest='Service Details' />
-                    )}
-                    keyExtractor={(item, index) => index.toString()}
-                />
+                {
+                    data.length !== 0 ? (
+                        <List
+                            dataArray={data}
+                            renderRow={(item, index) => (
+                                <CardList data={item} dest='Service Details' />
+                            )}
+                            keyExtractor={(item, index) => index.toString()}
+                        />
+                    ) : (
+                        <Empty title='service' />
+                    )
+                }
+
+                
             </Container>
         ) : (
             <Spinner color="green" />

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 
-import { StyleSheet, Alert, Linking } from "react-native"
-import { Ionicons } from "@expo/vector-icons"
+import { StyleSheet, Alert } from "react-native"
 import CardList from "../components/CardList"
-import { Text, Button, Icon, Spinner, List, Container } from 'native-base'
+import { Spinner, List, Container } from 'native-base'
+import Empty from '../components/Empty'
 import { getData } from '../utils/getData'
 
 const styles = StyleSheet.create({
@@ -13,11 +13,12 @@ const styles = StyleSheet.create({
     }
 })
 
-
 function Event({ navigation }) {
     
+
     const [data, setData] = useState({})
     const [isLoading, setIsLoading] = useState(true)
+
 
     useEffect(() => {
         getData('events').then(
@@ -31,17 +32,25 @@ function Event({ navigation }) {
         )
     }, [])
 
+    
     return (
 
         !isLoading ? (
             <Container>
-                <List
-                    dataArray={data}
-                    renderRow={(item, index) => (
-                        <CardList data={item} nav={navigation} />
+                {
+                    data.length !== 0 ? (
+                        <List
+                            dataArray={data}
+                            renderRow={(item, index) => (
+                                <CardList data={item} nav={navigation} />
                     )}
                     keyExtractor={(item, index) => index.toString()}
                 />
+                    ) : (
+                        <Empty title='events' />
+                    )
+                } 
+                
             </Container>
         ) : (
             <Spinner color="green" />

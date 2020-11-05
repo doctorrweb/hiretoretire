@@ -96,7 +96,7 @@ function DrawerNavigator() {
                 }}
                 component={EventStackNavigator}
             />
-            <Drawer.Screen
+            {/* <Drawer.Screen
                 name="Documents"
                 options={{
                     drawerIcon: ({ focused, tintColor }) => (
@@ -109,7 +109,7 @@ function DrawerNavigator() {
                     ),
                 }}
                 component={DocumentStackNavigator}
-            />
+            /> */}
         </Drawer.Navigator>
     )
 }

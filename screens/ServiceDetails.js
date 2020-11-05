@@ -1,19 +1,13 @@
-import React, { useState } from "react"
+import React from "react"
 import { StyleSheet, Image, Text } from "react-native"
-import { Ionicons } from "@expo/vector-icons"
 import HTML from "react-native-render-html"
 import {
   Container,
-  Fab,
   Content,
   Card,
   CardItem,
-  H2,
-  Button,
-  Icon,
   Left,
   Body,
-  View,
   Spinner
 } from "native-base"
 
@@ -25,10 +19,9 @@ const styles = StyleSheet.create({
   }
 })
 
-function ServiceDetails({ navigation }) {
+function ServiceDetails({ navigation, route }) {
 
-    // const [] = useState(false)
-    const uri = navigation.getParam("img", "default value")
+    const {img, title, content} = route.params
 
     return (
         <Container>
@@ -38,19 +31,17 @@ function ServiceDetails({ navigation }) {
               <Left>
                 <Body>
                   <Text>
-                    {JSON.stringify(
-                      navigation.getParam("title", "default value")
-                    )}
+                    {JSON.stringify(title)}
                   </Text>
                 </Body>
               </Left>
             </CardItem>
             <CardItem>
               <Body>
-                {uri ? (
+                {img ? (
                   <Image
                     source={{
-                      uri: `${uri}`
+                      uri: `${img}`
                     }}
                     style={{ height: 200, width: 330, flex: 1 }}
                   />
@@ -59,8 +50,7 @@ function ServiceDetails({ navigation }) {
                 )}
                 
                 <HTML
-                  html={navigation.getParam("content", "default value")}
-                  //imagesMaxWidth={Dimensions.get("window").width}
+                  html={content}
                 />
               </Body>
             </CardItem>

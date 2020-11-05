@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
   }
 })
 
-
 function Main({ navigation }) {
     return (
         // <View
@@ -30,10 +29,12 @@ function Main({ navigation }) {
 
         <Grid style={{ backgroundColor: "#ffffff" }}>
             <ScrollView>
-                <TouchableHighlight>
+                <TouchableHighlight 
+                    onPress={() => navigation.navigate("Event")}
+                >
                     <Row size={1} style={{ height: 188 }}>
                         <ImageBackground
-                            source={require("../assets/afdb_about.png")}
+                            source={require("../assets/overview_afdb.png")}
                             style={{
                                 width: "100%",
                                 height: "100%",
@@ -46,17 +47,17 @@ function Main({ navigation }) {
                                     style={{
                                         fontSize: 22,
                                         fontWeight: "bold",
-                                        color: "#02983E",
+                                        color: "#ffffff",
                                         paddingBottom: 10,
                                     }}
                                 >
-                                    News
+                                    Events
                                 </Text>
                                 <Button
                                     bordered
                                     small
                                     style={{
-                                        borderColor: "#02983E",
+                                        borderColor: "#ffffff",
                                         paddingTop: 5,
                                         paddingBottom: 5,
                                         paddingRight: 25,
@@ -65,11 +66,11 @@ function Main({ navigation }) {
                                     }}
                                     onPress={() =>
                                         navigation.navigate(
-                                            "About"
+                                            "Event"
                                         )
                                     }
                                 >
-                                    <Text style={{ color: "#02983E" }}>
+                                    <Text style={{ color: "#ffffff" }}>
                                         View
                                     </Text>
                                 </Button>
@@ -83,7 +84,7 @@ function Main({ navigation }) {
                 >
                     <Row size={1} style={{ height: 188 }}>
                         <ImageBackground
-                            source={require("../assets/afdb_about.png")}
+                            source={require("../assets/chhr.png")}
                             style={{
                                 width: "100%",
                                 height: "100%",
@@ -179,7 +180,9 @@ function Main({ navigation }) {
                 </TouchableHighlight>
 
                 <TouchableHighlight
-                    onPress={() => navigation.navigate("Documents")}
+                    onPress={() =>
+                        Linking.openURL("https://chhr.afdb.org/guidance-tools/")
+                    }
                 >
                     <Row size={1} style={{ height: 190 }}>
                         <ImageBackground
@@ -214,9 +217,7 @@ function Main({ navigation }) {
                                         marginLeft: "40%",
                                     }}
                                     onPress={() =>
-                                        navigation.navigate(
-                                            "Documents"
-                                        )
+                                        Linking.openURL("https://chhr.afdb.org/guidance-tools/")
                                     }
                                 >
                                     <Text style={{ color: "#02983E" }}>

@@ -31,6 +31,8 @@ const Landing = ({ isConnected, setLoggedIn, setIsLoading, isLoading }) => {
       }
       setVpnMsg(true)
     }, 10000)
+
+    return clearTimeout()
   }, [isLoading])
 
 
