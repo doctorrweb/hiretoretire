@@ -8,11 +8,6 @@ const CardList = ({data, dest}) => {
 
   const navigation = useNavigation()
 
-    // const IMG_END_POINT = `http://chhr-test.afdb.org/wp-json/wp/v2/media/`
-
-    console.log('Images', data._embedded["wp:featuredmedia"]["0"].source_url)
-    // console.log('Images', data._embedded["wp:featuredmedia"]["0"].media_details.sizes.thumbnail.source_url)
-
     return (
       <ScrollView >
         <ListItem thumbnail>

@@ -83,7 +83,6 @@ function Documents({ navigation }) {
 
     const handleOnChangeTab = (e) => {
         // setData(null)
-        console.log(e.ref.props.heading.props.children[1].props.children)
         setActivTab(e.ref.props.heading.props.children[1].props.children)
     }
 
@@ -101,8 +100,6 @@ function Documents({ navigation }) {
             <Tabs
             // tabBarUnderlineStyle={{ color: '#02983E' }}
             onChangeTab={(e) => handleOnChangeTab(e)}
-            // onChangeTab={(e) => console.log('e.ref.props', e.ref.props.heading.props.children[1].props.children)}
-            // onChangeTab={() => setActivTab()}
             >
             <Tab
                 style={{

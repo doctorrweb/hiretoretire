@@ -9,7 +9,6 @@ const CardList = ({data, dest}) => {
   const navigation = useNavigation()
 
 
-    console.log('Images', data._embedded["wp:featuredmedia"]["0"].source_url)
 
     return (
       <ScrollView>
