@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Content, ListItem, Body, Text, Thumbnail, Right, Left, Button} from 'native-base'
-import { ScrollView, Image } from 'react-native'
+import { Container, Content, ListItem, Body, Thumbnail, Right, Left, Button} from 'native-base'
+import { ScrollView, Image, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 const CardList = ({data, dest}) => {

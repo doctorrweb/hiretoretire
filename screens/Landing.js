@@ -25,14 +25,11 @@ const Landing = ({ isConnected, setLoggedIn, setIsLoading, isLoading }) => {
   const [vpnMsg, setVpnMsg] = useState(false)
 
   useEffect(() => {
-    setTimeout(() => {
-      if (isConnected === false) {
-        setIsLoading(false)
-      }
+    if (isConnected === false) {
+      setIsLoading(false)
       setVpnMsg(true)
-    }, 10000)
+    }
 
-    return clearTimeout()
   }, [isLoading])
 
 

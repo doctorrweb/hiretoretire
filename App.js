@@ -41,17 +41,16 @@ const App = () => {
                 setisConnected(true)
               } else {
                 console.log('Not connected !')
-                setTimeout(() => controller.abort(), 5000)
-                // Alert.alert("Error Data loading")
-                
+                controller.abort()
+                // setTimeout(() => controller.abort(), 5000)
+                Alert.alert("Error Data loading")
               }
                 
                 // setData(res)
             }
         )
         .catch(
-          // error => Alert.alert("Error Data loading")
-          // customAlert()
+          error => customAlert()
         )
     }, [])
 
