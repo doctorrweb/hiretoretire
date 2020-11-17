@@ -86,7 +86,7 @@ function AboutDetails({route}) {
                                     )}
                                     {
                                     content ? 
-                                    <HTML html={content.rendered} /> : null
+                                    <HTML html={content.rendered || '<p>No content to display</p>'} /> : null
                                     }
                                 </Body>
                                 </CardItem>

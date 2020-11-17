@@ -37,14 +37,14 @@ function News({ navigation }) {
         !isLoading ? (
             <Container>
                 {
-                    data.length !== 0 ? (
+                    data.length !== 0 || data !== [] ? (
                         <List
-                    dataArray={data}
-                    renderRow={(item, index) => (
-                        <CardList data={item} nav={navigation} />
-                    )}
-                    keyExtractor={(item, index) => index.toString()}
-                />
+                            dataArray={data}
+                            renderRow={(item, index) => (
+                                <CardList data={item} dest='News Details' />
+                            )}
+                            keyExtractor={(item, index) => index.toString()}
+                        />
                     ) : (
                         <Empty title='news' />
                     )

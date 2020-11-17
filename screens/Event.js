@@ -38,11 +38,11 @@ function Event({ navigation }) {
         !isLoading ? (
             <Container>
                 {
-                    data.length !== 0 ? (
+                    data.length !== 0 || data !== [] ? (
                         <List
                             dataArray={data}
                             renderRow={(item, index) => (
-                                <CardList data={item} nav={navigation} />
+                                <CardList data={item} dest='Event Details' />
                     )}
                     keyExtractor={(item, index) => index.toString()}
                 />

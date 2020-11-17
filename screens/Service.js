@@ -38,7 +38,7 @@ function Service({ navigation }) {
         !isLoading ? (
             <Container>
                 {
-                    data.length !== 0 ? (
+                    data.length !== 0 || data !== [] ? (
                         <List
                             dataArray={data}
                             renderRow={(item, index) => (

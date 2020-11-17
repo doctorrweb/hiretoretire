@@ -27,7 +27,7 @@ function About({ navigation }) {
                             style={{
                                 fontSize: 22,
                                 fontWeight: "bold",
-                                fontFamily: "Futura",
+                                // fontFamily: "Futura",
                                 color: "#ffffff",
                                 paddingBottom: 10,
                             }}
@@ -64,7 +64,7 @@ function About({ navigation }) {
                             style={{
                                 fontSize: 22,
                                 fontWeight: "bold",
-                                fontFamily: "Futura",
+                                // fontFamily: "Futura",
                                 color: "#ffffff",
                                 paddingBottom: 10,
                             }}
@@ -101,7 +101,7 @@ function About({ navigation }) {
                             style={{
                                 fontSize: 22,
                                 fontWeight: "bold",
-                                fontFamily: "Futura",
+                                // fontFamily: "Futura",
                                 color: "#ffffff",
                                 paddingBottom: 10,
                             }}
@@ -138,7 +138,7 @@ function About({ navigation }) {
                             style={{
                                 fontSize: 22,
                                 fontWeight: "bold",
-                                fontFamily: "Futura",
+                                // fontFamily: "Futura",
                                 color: "#ffffff",
                                 paddingBottom: 10,
                             }}
