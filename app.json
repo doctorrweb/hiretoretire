@@ -20,6 +20,10 @@
       "bundleIdentifier": "com.afdb.hiretoretire",
       "supportsTablet": false
     },
+    "android": {
+      "package": "com.afdb.hiretoretire",
+      "versionCode": 1
+    },
     "web": {
       "favicon": "./assets/favicon.png"
     }
